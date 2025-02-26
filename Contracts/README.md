@@ -1,75 +1,118 @@
-# 🎰 V3 Project Overview
+# V4 Project Overview 🚀
 
-## 🚀 Introduction
+## Introduction
 
-Welcome to the V3 project! This is an advanced iteration of an Ethereum-based betting game, building upon the foundations laid in V1 and V2. This version introduces a comprehensive jackpot system and maintains the staking functionality from V2. The key contracts in this version are `GameWithJackpot` and `BalanceTracker`.
+The V4 project represents a significant evolution of our Ethereum-based betting game, building upon the solid foundations of previous versions. This iteration introduces enhanced player tracking, bet history recording, and a more sophisticated reward system. The key contracts continue to be `GameWithJackpot` and `BalanceTracker`, now with expanded capabilities.
 
-## 📖 Story Behind the Project
+## Story Behind the Project 📖
 
-The idea for this project originated from a fun conversation on Twitter with Daniel Marini, the CEO of Nexus Labs. When asked what decentralized application (dapp) he'd like to see on his devnet, Daniel suggested a "1-button test casino." 🎲 The concept was simple yet intriguing: a button that gives users a 50% chance of doubling their NEX points or losing them. To expand on this idea, the project also allows users to stake their NEX points and earn rewards from casino users trying out the casino.
+Our journey began with an engaging X conversation with Daniel Marini, CEO of Nexus Labs, who proposed a fun idea for a "1-button test casino." The concept was simple: a single button with a 50% chance of doubling your NEX points or losing them. Building on this, we've expanded the idea into a dynamic gaming ecosystem, evolving through multiple versions to enhance the player experience!
 
-## 🔍 Key Differences Between V1, V2, and V3
+## Evolution Through Versions 🌱 → 🌲
 
-### 🎯 1. Jackpot System
+### V1: The Foundation 🧱
+- **Simple Betting Mechanism**: Basic 50/50 chance to win double or lose your bet
+- **Manual Funds Management**: Owner could deposit and manage contract funds
+- **Event Logging**: Basic events for gameplay and deposits
+- **No Staking or Jackpots**: Focused solely on the core betting mechanic
 
-- **V1**: No jackpot feature.
-- **V2**: Adjustable bet amounts and staking, but no jackpot.
-- **V3**: Introduces a jackpot system where players can win a portion of the jackpot based on their win streaks. The jackpot is funded by a percentage of each bet, creating an additional incentive for players.
+### V2: Staking Introduction 📈
+- **Staking System**: Players could stake tokens and earn rewards from game fees
+- **Adjustable Bet Amounts**: Owner could modify the required bet amount
+- **Fee Distribution**: 5% of lost bets distributed to stakers as rewards
+- **Enhanced Utility**: Transformed from pure gambling to an investment platform hybrid
 
-### 🏆 2. Jackpot Tiers
+### V3: Jackpot System 🏆
+- **Tiered Jackpot System**: Win streaks could trigger jackpot rewards
+- **Configurable Tiers**: Different thresholds (4, 6, 8 wins) with increasing payouts
+- **Jackpot Contribution**: Small percentage of each bet goes to the jackpot pool
+- **Enhanced Excitement**: Added progressive rewards for consistent winners
 
-- **V1**: No tier system.
-- **V2**: No tier system.
-- **V3**: Implements a tiered jackpot system with specific thresholds for consecutive wins, allowing players to win different percentages of the jackpot based on their performance. This adds a strategic element to gameplay.
+### V4: Player Statistics & History 📊
+- **Comprehensive Statistics**: Tracking lifetime wins, losses, and current streaks
+- **Bet History Recording**: Circular buffer of the last 10 bets for each player
+- **Enhanced Reward Calculations**: Better visibility into pending rewards
+- **Improved Testing Framework**: Modular tests for all aspects of functionality
 
-### 📈 3. Enhanced Event Emission
+## Key Features in V4 ✨
 
-- **V1**: Basic events for actions like playing the game and depositing funds.
-- **V2**: Additional events like `BetAmountUpdated` and `RewardDistributed`.
-- **V3**: Emits events when contributions to the jackpot are made, enhancing transparency and allowing players to track jackpot growth.
+### 1. Player Statistics Tracking 📊
+Players can now view their complete gaming record including:
+- Total lifetime wins and losses
+- Current win streak
+- Performance statistics over time
 
-### 🔧 4. Functions for Managing Jackpot Tiers
+### 2. Bet History Recording 📜
+A transparent record of recent activity including:
+- Bet amounts and timestamps
+- Outcomes (win/loss)
+- Payouts received
+- Jackpot winnings (if any)
 
-- **V1**: No functions to manage jackpot tiers.
-- **V2**: No functions to manage jackpot tiers.
-- **V3**: Includes functions to add and update jackpot tiers, allowing the owner to manage the jackpot system dynamically.
+### 3. Enhanced Reward Calculations 💰
+Improved staking mechanisms with:
+- Precise calculation of pending rewards
+- Total stake value including unclaimed rewards
+- Proportional distribution of incoming fees
 
-## 📜 Contracts
+### 4. Improved Testing Framework ✅
+Comprehensive test coverage with specialized test files for:
+- Gameplay mechanics
+- Jackpot management
+- Administrative functions
+- Staking operations
+- Edge cases and error handling
 
-### 1. BalanceTracker
+## Contracts
 
-The `BalanceTracker` contract, which is the same as the `BalanceTracker` from V2, manages Ether balances and allows users to stake their Ether while tracking contributions to the jackpot.
+### 1. BalanceTracker ⚖️
+
+The `BalanceTracker` contract manages staking and reward distribution with enhanced visibility and calculation methods.
 
 #### Key Features:
-- **💰 Staking**: Users can stake Ether and earn rewards from game fees.
-- **💸 Withdrawals**: Users can withdraw their stakes and any accrued rewards.
-- **🔄 Reward Distribution**: Automatically distributes rewards to stakers when fees are received.
+- **Enhanced Staking System**: Refined staking with better reward tracking
+- **Pending Rewards Calculation**: New functions to check pending rewards without withdrawing
+- **Total Stake with Rewards**: Calculate full value of stake including pending rewards
+- **Robust Error Handling**: Improved handling of edge cases and error conditions
 
-### 2. GameWithJackpot
+### 2. GameWithJackpot 🎮
 
-The `GameWithJackpot` contract implements a betting game with a jackpot system, where players can win based on their performance and win streaks.
+The `GameWithJackpot` contract combines betting, jackpots, and now detailed player tracking.
 
 #### Key Features:
-- **🎰 Jackpot System**: Players can win a portion of the jackpot based on their win streaks.
-- **🏅 Tiered Rewards**: Different jackpot tiers with specific thresholds for consecutive wins.
-- **📊 Event Emission**: Emits events for jackpot contributions and tier updates.
+- **Player Statistics**: Track total wins, losses, and current streak for each player
+- **Bet History**: Record detailed information about the last 10 bets for each player
+- **Circular Buffer Implementation**: Efficient storage of bet history using a circular buffer pattern
+- **Enhanced Jackpot Notifications**: Improved messages when players win jackpots
 
-## 🧪 Testing
+## Testing 🧪
 
-The project includes comprehensive tests for both contracts to ensure their functionality and correctness. The tests cover various scenarios, including jackpot contributions, staking, and game plays.
+Our V4 testing approach has been completely revamped with modular, focused test files that ensure better coverage and reliability:
 
-### 1. GameWithJackpot Tests
+### 1. Gameplay Tests 🎲
+- Tests actual gameplay mechanics, streak tracking, and state updates after playing
+- Verifies outcomes of wins and losses on player statistics
 
-- **✅ Deployment Test**: Ensures the `GameWithJackpot` contract is deployed correctly.
-- **🎯 Jackpot Functionality Tests**: Verifies the jackpot system and tiered rewards.
-- **🎮 Game Play Tests**: Tests the play functionality and checks for correct outcomes.
+### 2. Jackpot Management Tests 🏆
+- Verifies the ability to add, update, and validate jackpot tiers
+- Tests jackpot contributions and payout calculations
 
-### 2. BalanceTracker Tests
+### 3. Admin Function Tests 🔑
+- Ensures owner-only functions work correctly
+- Tests parameter updates and fund management
 
-- **🔍 Initial State Test**: Verifies the initial state of the `BalanceTracker`.
-- **💼 Staking Tests**: Tests for staking, withdrawing, and checking stakes.
-- **🔄 Reward Distribution Tests**: Ensures rewards are distributed correctly.
+### 4. Staking Tests 💼
+- Verifies staking, withdrawing, and reward distribution
+- Tests calculations of pending rewards and total stake values
 
-## 🎉 Conclusion
+### 5. Edge Case Tests 🧠
+- Tests boundary conditions and error cases
+- Ensures the contracts handle unusual inputs and scenarios correctly
 
-The V3 project enhances the original betting game by introducing a jackpot system and tiered rewards. These improvements provide a more engaging experience for players and allow for greater flexibility in gameplay. The `BalanceTracker` remains a crucial component, maintaining its functionality from V2 while supporting the new features introduced in this version. Further enhancements can be made to improve security, randomness, and user experience.
+## Conclusion 🏁
+
+V4 builds on the strengths of our previous versions to create a more engaging, transparent, and feature-rich platform. From the simple betting mechanism of V1, through the staking capabilities of V2, the jackpot excitement of V3, and now the comprehensive player tracking of V4, our platform has evolved into a multi-dimensional gaming experience.
+
+The detailed statistics and history provide players with unprecedented visibility into their gaming activity, while the improved staking mechanics deliver better rewards for investors. The modular testing framework ensures reliability and security across all aspects of the system.
+
+As we look to the future, this foundation positions us for further innovations including tournaments, social features, and even more engaging gameplay mechanics. Each version has brought us closer to the ultimate betting platform, and V4 represents our most complete iteration yet! 🎯
