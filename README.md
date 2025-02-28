@@ -7,7 +7,7 @@
 
 Nexus One-Shot is a decentralized gaming platform built on blockchain technology that offers a fair, transparent betting system with staking rewards. The platform combines engaging gameplay with DeFi mechanics to create a unique gaming experience.
 
-![Nexus One-Shot](./Screenshot/screenshot.png)
+![Nexus One-Shot](./UI/Screenshot/screenshot.png)
 
 ## ✨ Features
 
