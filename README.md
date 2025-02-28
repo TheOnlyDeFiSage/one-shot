@@ -100,7 +100,7 @@ The built files will be in the `dist` directory, ready to be deployed.
 
 ## 🔧 Smart Contracts
 
-The platform interacts with the following smart contracts **currently deployed on Nexus Labs Devnet**:
+The platform interacts with the following smart contracts **currently deployed on Nexus Labs Devnet.** [Visit NEXUS faucet](https://hub.nexus.xyz/)
 
 - **Game Contract**: Handles bets and determines win/loss outcomes
 - **Balance and Staking Contract**: Manages token staking, balances, and reward distribution
