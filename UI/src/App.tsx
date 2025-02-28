@@ -20,7 +20,7 @@ import { ethers } from 'ethers';
  */
 function App() {
   // Get wallet and contract services from context
-  const { isConnected, address, balance, gameService, stakingService, provider, isCorrectNetwork } = useWallet();
+  const { isConnected, address, balance, gameService, stakingService, provider, isCorrectNetwork, networkCurrency } = useWallet();
   
   // Staking state
   const [stakedAmount, setStakedAmount] = useState(0);
@@ -498,7 +498,7 @@ function App() {
       
       setToast({
         type: 'success',
-        message: `Successfully staked ${stakeAmount} ETH`
+        message: `Successfully staked ${stakeAmount} ${networkCurrency}`
       });
       
     } catch (error: any) {
@@ -531,7 +531,7 @@ function App() {
     } finally {
       setIsStakingProcessing(false);
     }
-  }, [isConnected, stakingService, balance, address, updateWalletBalance, refreshStakingData, isCorrectNetwork]);
+  }, [isConnected, stakingService, balance, address, updateWalletBalance, refreshStakingData, isCorrectNetwork, networkCurrency]);
 
   /**
    * Handles withdrawing staked tokens and rewards
@@ -604,7 +604,7 @@ function App() {
       
       setToast({
         type: 'success',
-        message: 'Successfully withdrawn staked tokens and rewards'
+        message: `Successfully withdrawn staked tokens and rewards in ${networkCurrency}`
       });
       
     } catch (error: any) {
@@ -637,7 +637,7 @@ function App() {
     } finally {
       setIsStakingProcessing(false);
     }
-  }, [isConnected, stakingService, stakedAmount, address, updateWalletBalance, refreshStakingData, isCorrectNetwork]);
+  }, [isConnected, stakingService, stakedAmount, address, updateWalletBalance, refreshStakingData, isCorrectNetwork, networkCurrency]);
 
   // Main UI layout with responsive design
   // Uses fixed header and footer with scrollable main content
