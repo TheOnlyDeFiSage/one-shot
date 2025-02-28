@@ -89,9 +89,7 @@ The built files will be in the `dist` directory, ready to be deployed.
 │   │   ├── contracts/    # Contract interfaces and wallet context
 │   │   ├── assets/       # Static assets
 │   │   └── App.tsx       # Main application component
-│   ├── public/           # Public static files
-│   ├── Screenshot/       # Application screenshots
-│   └── dist/             # Production build (generated)
+│   └── public/           # Public static files
 │
 └── Contracts/            # Smart contract code
     ├── V1/               # First iteration of smart contracts
@@ -130,9 +128,6 @@ This project is licensed under the MIT License - see the [LICENSE](../LICENSE) f
 - 🎲 More game modes and betting options
 - 🏅 Achievements and rewards system
 - 🌐 Multi-chain support
-- 📱 Mobile app
-- 🔄 Automatic compounding for staking rewards
-- 🎁 Referral program
 
 ## 📞 Contact
 
