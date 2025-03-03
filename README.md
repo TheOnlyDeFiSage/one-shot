@@ -1,6 +1,6 @@
 # **ANNOUNCEMENT**
  **THIS IS BEING DISCONTINUED AND NEW REPO ON THE WAY**
-  ***Stay tuned for more details. The new repository will feature updated functionality and an improved structure to ensure long-term growth.***
+  **Stay tuned for more details. The new repository will feature updated functionality and an improved structure to ensure long-term growth.**
 
 
 # 🎮 Nexus One-Shot - Web3 Gaming Platform 🎲
