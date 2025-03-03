@@ -9,6 +9,7 @@ import { FAQs } from './components/FAQs';
 import { BettingAnimation } from './components/BettingAnimation';
 import { StakingAnimation } from './components/StakingAnimation';
 import { DonationPopup } from './components/DonationPopup';
+import { AnnouncementPopup } from './components/AnnouncementPopup';
 import { Github, Twitter, Box, Coffee } from 'lucide-react';
 import { useWallet } from './contracts/WalletContext';
 import { BET_AMOUNT } from './contracts/config';
@@ -43,6 +44,9 @@ function App() {
   // Donation popup state
   const [isDonationOpen, setIsDonationOpen] = useState(false);
   const [showCoffeeTooltip, setShowCoffeeTooltip] = useState(false);
+  
+  // Announcement popup state
+  const [isAnnouncementOpen, setIsAnnouncementOpen] = useState(false);
 
   // Add a ref to track the event listener cleanup function
   const gamePlayedListenerRef = useRef<any>(null);
@@ -220,6 +224,26 @@ function App() {
       };
     }
   }, [isConnected, address, gameService, stakingService, updateWalletBalance]);
+
+  // Show announcement when wallet is connected
+  useEffect(() => {
+    // Check if wallet was just connected and localStorage doesn't have a flag
+    if (isConnected && !localStorage.getItem('announcementShown')) {
+      // Set a small delay to ensure the wallet UI has updated first
+      const timer = setTimeout(() => {
+        setIsAnnouncementOpen(true);
+        // Set flag in localStorage to not show again for this browser session
+        localStorage.setItem('announcementShown', 'true');
+      }, 1000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [isConnected]);
+
+  // Function to close the announcement popup
+  const handleCloseAnnouncement = () => {
+    setIsAnnouncementOpen(false);
+  };
 
   /**
    * Handles placing a bet by calling the Game contract
@@ -731,6 +755,13 @@ function App() {
         </div>
       </main>
 
+      {/* Donation popup */}
+      <DonationPopup isOpen={isDonationOpen} onClose={() => setIsDonationOpen(false)} />
+      
+      {/* Announcement popup */}
+      <AnnouncementPopup isOpen={isAnnouncementOpen} onClose={handleCloseAnnouncement} />
+      
+      {/* Toast notification */}
       {toast && (
         <Toast
           type={toast.type}
@@ -778,7 +809,6 @@ function App() {
         </div>
       </footer>
       <FAQs isConnected={isConnected} />
-      <DonationPopup isOpen={isDonationOpen} onClose={() => setIsDonationOpen(false)} />
     </div>
   );
 }

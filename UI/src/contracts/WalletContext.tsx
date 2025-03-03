@@ -412,6 +412,9 @@ export const WalletProvider: React.FC<{ children: ReactNode }> = ({ children }) 
       setIsDisconnected(false);
       localStorage.removeItem(WALLET_DISCONNECTED_KEY);
       
+      // Reset the announcement shown flag to ensure it shows after reconnection
+      localStorage.removeItem('announcementShown');
+      
       console.log("Requesting wallet connection...");
       // Request account access - this will prioritize the active account in MetaMask
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -440,22 +443,25 @@ export const WalletProvider: React.FC<{ children: ReactNode }> = ({ children }) 
 
   // Disconnect wallet
   const disconnect = (): void => {
-    console.log("Disconnecting wallet");
+    // Clear provider and account info
     setProvider(null);
     setAddress(null);
     setChainId(null);
     setBalance(0);
     setGameService(null);
     setStakingService(null);
-    setIsCorrectNetwork(false);
-    setIsDisconnected(true);
     
-    // Clear storage - but keep the disconnected flag
-    localStorage.removeItem(WALLET_CONNECTED_AT_KEY);
+    // Mark as disconnected in state and localStorage
+    setIsDisconnected(true);
     localStorage.setItem(WALLET_DISCONNECTED_KEY, 'true');
     
-    // Emit an event to make sure components are aware of disconnection
-    window.dispatchEvent(new CustomEvent('wallet_disconnected'));
+    // Clear the connected timestamp
+    localStorage.removeItem(WALLET_CONNECTED_AT_KEY);
+    
+    // Clear the announcement shown flag so it shows on next connection
+    localStorage.removeItem('announcementShown');
+    
+    console.log("Wallet disconnected");
   };
 
   // Updated switchNetwork function to support multiple networks
