@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --primary: 160 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 50% 51%;
+    --secondary-foreground: 0 0% 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-black/30 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg;
+  }
+
+  .glass-inner-card {
+    @apply bg-black/20 backdrop-blur-sm border border-white/5 rounded-xl shadow-sm;
+  }
+
+  .neo-button {
+    @apply relative overflow-hidden transition-all duration-300
+           bg-gradient-to-br from-primary to-secondary
+           hover:from-secondary hover:to-primary
+           text-white font-semibold rounded-xl
+           shadow-[0_0_30px_rgba(0,255,178,0.2)]
+           hover:shadow-[0_0_40px_rgba(0,255,178,0.4)]
+           active:scale-[0.98];
+  }
+
+  .stats-value {
+    @apply text-2xl font-bold bg-clip-text text-transparent
+           bg-gradient-to-r from-primary to-secondary
+           tracking-tight;
+  }
+
+  .icon-primary {
+    @apply text-primary;
+  }
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary)) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--primary));
+  border-radius: 20px;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+@keyframes result-reveal {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-result-reveal {
+  animation: result-reveal 0.5s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+/* Gradient text class */
+.text-gradient {
+  @apply bg-clip-text text-transparent;
+}
+
+/* Adding a glow effect that can be applied to buttons or elements */
+.glow-primary {
+  @apply shadow-[0_0_15px_rgba(0,255,178,0.4)] hover:shadow-[0_0_25px_rgba(0,255,178,0.6)];
+}
+
+.glow-secondary {
+  @apply shadow-[0_0_15px_rgba(134,25,240,0.4)] hover:shadow-[0_0_25px_rgba(134,25,240,0.6)];
+}
+
+/* Neo button variants */
+.neo-button-primary {
+  @apply bg-gradient-to-r from-primary to-secondary text-white 
+         hover:from-secondary hover:to-primary 
+         shadow-[0_4px_14px_rgba(0,255,178,0.3)] 
+         hover:shadow-[0_4px_20px_rgba(0,255,178,0.5)]
+         transform transition-all duration-300 hover:-translate-y-0.5;
+}
+
+.neo-button-secondary {
+  @apply bg-white/10 backdrop-blur-sm border border-white/20 text-white 
+         hover:bg-white/20 shadow-[0_4px_14px_rgba(0,0,0,0.25)] 
+         transform transition-all duration-300 hover:-translate-y-0.5;
+}
+
+/* Add these styles at the end of the file */
+.glass-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-effect::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 25%,
+    transparent 50%
+  );
+  transform: rotate(30deg);
+  pointer-events: none;
+}
+
+.glass-stat-container {
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animation for error toast shaking */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-4px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(4px);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
