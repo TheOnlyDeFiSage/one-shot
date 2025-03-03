@@ -1,3 +1,8 @@
+## **ANNOUNCEMENT**
+**THIS IS BEING DISCONTINUED AND NEW REPO ON THE WAY**
+Stay tuned for more details. The new repository will feature updated functionality and an improved structure to ensure long-term growth.
+
+
 # 🎮 Nexus One-Shot - Web3 Gaming Platform 🎲
 
 [![GitHub stars](https://img.shields.io/github/stars/TheOnlyDeFiSage/one-shot?style=social)](https://github.com/TheOnlyDeFiSage/one-shot)
@@ -17,7 +22,6 @@ Nexus One-Shot is a decentralized gaming platform built on blockchain technology
 - 📱 **Responsive Design**: Beautiful glass UI that works on all devices
 - 🔐 **Secure Wallet Integration**: Connect with popular Web3 wallets
 - 📊 **Bet History**: Track your gaming history in real-time
-- 💸 **Developer Support**: Support development through cryptocurrency donations
 
 ## 🛠️ Technologies
 
@@ -77,7 +81,6 @@ The built files will be in the `dist` directory, ready to be deployed.
 3. **Win or Lose**: You have a 50% chance to double your money
 4. **Build Streaks**: Win consecutive bets to qualify for jackpot rewards
 5. **Stake Tokens**: Stake your tokens to earn passive income from the platform fees
-6. **Support Development**: Use the "Buy me a coffee" button to support ongoing development
 
 ## 🏗️ Project Structure
 
@@ -109,25 +112,13 @@ Contract addresses:
 - Game Contract: [0x7D8ded9cDdEced4Ff3b85E62E1e5B0cD74686472](https://explorer.nexus.xyz/address/0x7D8ded9cDdEced4Ff3b85E62E1e5B0cD74686472)
 - Balance and Staking Contract: [0x3E019983C7BE92757Aa795A49D13fb3F3b7EF24D](https://explorer.nexus.xyz/address/0x3E019983C7BE92757Aa795A49D13fb3F3b7EF24D)
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
 ## 🔮 Coming Soon
 
-- 🎲 More game modes and betting options
-- 🏅 Achievements and rewards system
-- 🌐 Multi-chain support
+- 🌐 Better contracts for Multi-chain support
 
 ## 📞 Contact
 
